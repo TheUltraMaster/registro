@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camara de comercio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+                <img src="logo.png" alt="Cinque Terre" id="logo" class="mb-2">
+                <div class="d-flex justify-content-center">
+                    <div class="input-group mb-2" style="background:#c1dddd; color:#000000;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="font-size:16px;">Número Formato</span>
+                        </div>
+                        <input type="text" class="form-control" style="width:100px; background-color:#ffffff !important;font-size: 12px;" name="correlativo" id="correlativo" value="0" disabled="">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="font-size:16px;">Código</span>
+                        </div>
+                        <input type="text" class="form-control" style="width:45px; background-color:#ffffff !important ;font-size: 12px;" value="0" disabled="">
+                    </div>
+                </div>
+                <h5><b>Este formato de solicitud es GRATUITO, PROHIBIDO su venta.</b></h5>
+            </div>
+                
+            <div class="card-body">
+                <form action="/formatoSolicitudes/Solicitudes/Pdf_inscp_comerciante_ind_empresa" class="contact100-form validate-form" enctype="multipart/form-data" method="post" onkeydown="return DisableEnterSubmit(event.keyCode);">
+                    <h5 class="text-center"><b>SOLICITUD DE INSCRIPCIÓN DE COMERCIANTE INDIVIDUAL Y EMPRESA</b></h5>
+                    <h6 class="text-center"><b>Señor Registrador Mercantil General de la República.</b></h6>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="P_NOMBRE"><b>Primer Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="P_NOMBRE" id="P_NOMBRE">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="S_NOMBRE"><b>Segundo Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="S_NOMBRE" id="S_NOMBRE">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="O_NOMBRE"><b>Otro Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="O_NOMBRE" id="O_NOMBRE">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="P_APELLIDO"><b>Primer Apellido</b></label>
+                            <input type="text" class="form-control form-control-sm" name="P_APELLIDO" id="P_APELLIDO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="S_APELLIDO"><b>Segundo Apellido</b></label>
+                            <input type="text" class="form-control form-control-sm" name="S_APELLIDO" id="S_APELLIDO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="A_CASADA"><b>Apellido Casada</b></label>
+                            <input type="text" class="form-control form-control-sm" name="A_CASADA" id="A_CASADA">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="EDAD"><b>Edad</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EDAD" id="EDAD" value="0">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="ESTADO_CIVIL"><b>Estado Civil</b></label>
+                            <select name="ESTADO_CIVIL" class="form-control form-control-sm" id="ESTADO_CIVIL">
+                                <option value="">- Seleccione una Opción -</option>
+                                <option>Soltero</option>
+                                <option>Casado</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="NACIONALIDAD"><b>Nacionalidad</b></label>
+                            <input type="text" class="form-control form-control-sm" name="NACIONALIDAD" id="NACIONALIDAD">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="PROFESION"><b>Profesión u Oficio</b></label>
+                            <input type="text" class="form-control form-control-sm" name="PROFESION" id="PROFESION">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="DEPARTAMENTO"><b>Domicilio en el Departamento de</b></label>
+                            <input type="text" class="form-control form-control-sm" name="DEPARTAMENTO" id="DEPARTAMENTO">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="DIRECCION"><b>Con Residencia en</b></label>
+                            <input type="text" class="form-control form-control-sm" name="DIRECCION" id="DIRECCION">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="PASAPORTE_PER" id="PASAPORTE_PER" onclick="opcion_documento()">
+                                <label class="form-check-label" for="PASAPORTE_PER">PASAPORTE</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="DPI_PER" id="DPI_PER" onclick="opcion_documento()">
+                                <label class="form-check-label" for="DPI_PER">DOCUMENTO PERSONAL DE IDENTIFICACION (DPI)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-sm" placeholder="ingrese su pasaporte" name="PASAPORTE" id="PASAPORTE" style="display:none;">
+                        <input type="text" class="form-control form-control-sm" placeholder="ingrese su dpi" name="DPI" id="DPI" value="0" style="display:none;" onclick="valor_null_d()">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="NIT"><b>Nit</b></label>
+                            <input type="text" class="form-control form-control-sm" name="NIT" id="NIT" onclick="valor_null_n()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="TELEFONO"><b>No. De Teléfono y/o Celular</b></label>
+                            <input type="text" class="form-control form-control-sm" name="TELEFONO" id="TELEFONO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="CORREO"><b>Correo Electrónico</b></label>
+                            <input type="email" class="form-control form-control-sm" placeholder="ejemplo@gmail.com" name="CORREO" id="CORREO">
+                        </div>
+                    </div>
+                    <h6 class="text-center"><b>Atentamente:</b></h6>
+                    <h5 class="text-center"><b>PIDO:</b></h5>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="INSCRI_COMERCIANTE_INDIVIDUAL" id="INSCRI_COMERCIANTE_INDIVIDUAL" onclick="checkIfChecked()">
+                        <label class="form-check-label" for="INSCRI_COMERCIANTE_INDIVIDUAL"><b>Que se me inscriba como comerciante individual</b></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="INSCRI_EMPRESA" id="INSCRI_EMPRESA" onclick="checkIfChecked()">
+                        <label class="form-check-label" for="INSCRI_EMPRESA"><b>Que se inscriba la empresa</b></label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="RAZON_SOCIAL"><b>Nombre Comercial o Razón Social</b></label>
+                            <input type="text" class="form-control form-control-sm" name="RAZON_SOCIAL" id="RAZON_SOCIAL">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="OBJETO_SOCIAL"><b>Objeto de la empresa</b></label>
+                            <input type="text" class="form-control form-control-sm" name="OBJETO_SOCIAL" id="OBJETO_SOCIAL">
+                        </div>
+                    </div>
+                    <h6 class="text-center"><b>DATOS DEL EMPRESARIO</b></h6>
+                    <h6 class="text-center"><b>(Nombre del Comerciante Individual o el Representante Legal)</b></h6>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_P_NOMBRE"><b>Primer Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_P_NOMBRE" id="EMPRESARIO_P_NOMBRE">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_S_NOMBRE"><b>Segundo Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_S_NOMBRE" id="EMPRESARIO_S_NOMBRE">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_O_NOMBRE"><b>Otro Nombre</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_O_NOMBRE" id="EMPRESARIO_O_NOMBRE">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_P_APELLIDO"><b>Primer Apellido</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_P_APELLIDO" id="EMPRESARIO_P_APELLIDO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_S_APELLIDO"><b>Segundo Apellido</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_S_APELLIDO" id="EMPRESARIO_S_APELLIDO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_A_CASADA"><b>Apellido Casada</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_A_CASADA" id="EMPRESARIO_A_CASADA">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_EDAD"><b>Edad</b></label>
+                            <input type="number" min="18" max="100" class="form-control form-control-sm" name="EMPRESARIO_EDAD" id="EMPRESARIO_EDAD" value="0">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="EMPRESARIO_ESTADO_CIVIL"><b>Estado Civil</b></label>
+                            <select name="EMPRESARIO_ESTADO_CIVIL" class="form-control form-control-sm" id="EMPRESARIO_ESTADO_CIVIL">
+                                <option value="">- Seleccione una Opción -</option>
+                                <option>Soltero</option>
+                                <option>Casado</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="EMPRESARIO_NACIONALIDAD"><b>Nacionalidad</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_NACIONALIDAD" id="EMPRESARIO_NACIONALIDAD">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="EMPRESARIO_PROFESION"><b>Profesión u Oficio</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_PROFESION" id="EMPRESARIO_PROFESION">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="EMPRESARIO_DEPARTAMENTO"><b>Domicilio en el Departamento de</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_DEPARTAMENTO" id="EMPRESARIO_DEPARTAMENTO">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="EMPRESARIO_DIRECCION"><b>Con Residencia en</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_DIRECCION" id="EMPRESARIO_DIRECCION">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_NIT"><b>Nit</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_NIT" id="EMPRESARIO_NIT">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_TELEFONO"><b>No. De Teléfono y/o Celular</b></label>
+                            <input type="text" class="form-control form-control-sm" name="EMPRESARIO_TELEFONO" id="EMPRESARIO_TELEFONO">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="EMPRESARIO_CORREO"><b>Correo Electrónico</b></label>
+                            <input type="email" class="form-control form-control-sm" placeholder="chupapimuñaño@gmail.com" name="EMPRESARIO_CORREO" id="EMPRESARIO_CORREO">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="FECHA"><b>Fecha</b></label>
+                            <input type="date" class="form-control form-control-sm" name="FECHA" id="FECHA" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="LUGAR"><b>Lugar</b></label>
+                            <input type="text" class="form-control form-control-sm" name="LUGAR" id="LUGAR" placeholder="Ciudad">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button"  onclick="check()" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+
+function check(){
+
+        Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Todo correcto",
+  showConfirmButton: false,
+  timer: 1500
+});
+    };
+
+</script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="index.js"></script>
+</body>
+</html>
